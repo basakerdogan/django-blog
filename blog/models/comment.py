@@ -6,7 +6,7 @@ from blog.models import writing_model
 from django.utils.html import format_html
 
 class comment_model(data_abstract_model):
-    writer = models.ForeignKey(User, related_name= "comment" , on_delete= models.CASCADE)
+    writer = models.ForeignKey('account.custom_user_model', related_name= "comment" , on_delete= models.CASCADE)
     writing = models.ForeignKey(writing_model, related_name= "comment", on_delete= models.CASCADE)
     comment = RichTextField()
 

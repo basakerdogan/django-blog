@@ -12,7 +12,7 @@ class writing_model( data_abstract_model):
     content = RichTextField()
     slug = AutoSlugField(populate_from = "title", unique=True)
     categories = models.ManyToManyField(category_model, related_name= "writing")
-    writer = models.ForeignKey(User, related_name= "writings", on_delete= models.CASCADE) #writer silindiğinde tüm data uçar
+    writer = models.ForeignKey('account.custom_user_model', related_name= "writings", on_delete= models.CASCADE) #writer silindiğinde tüm data uçar
 
     class Meta():
         db_table = "writing"
